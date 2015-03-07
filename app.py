@@ -1,5 +1,6 @@
 import csv
 from flask import Flask
+from flask import abort
 from flask import render_template
 app = Flask(__name__)
 
@@ -28,6 +29,7 @@ def detail(row_id):
 	for row in object_list: #loop through csv to find record matching row_id passed into URL
 		if row['id'] == row_id: #pass out this row's data into detail.html's template
 			return render_template(template, object=row)
+	abort(404)		
 
 #all functions must be run before these lines
 if __name__ == '__main__':

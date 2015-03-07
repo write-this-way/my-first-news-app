@@ -26,9 +26,9 @@ def index():
 def detail(row_id):
 	template = 'detail.html'
 	object_list = get_csv()
-	for row in object_list: #loop through csv to find record matching row_id passed into URL
-		if row['id'] == row_id: #pass out this row's data into detail.html's template
-			return render_template(template, object=row)
+	for obj in object_list: #loop through csv to find record matching row_id passed into URL
+		if obj['id'] == row_id: #pass out this row's data into detail.html's template
+			return render_template(template, object=obj)
 	abort(404)		
 
 #all functions must be run before these lines
